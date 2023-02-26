@@ -1,10 +1,14 @@
-import logo from "./logo.svg";
-import "./App.css";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import ProductList from './components/ProductList';
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="container">
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductList/>} />
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
