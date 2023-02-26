@@ -42,12 +42,22 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
     const {nameParam, priceParam} = req.body;
+    // !Note
+    // Nama Parameter di request body 
+    // harus sama dengan nama parameter di local method
+    // dan ketika menjadi suatu response maka akan sama sesuai dengan schemanya
+    // perbedaaan variable local dan model cukup merepotkan
+    // namun bisa menjadi mengerti perbedaan
+    // tanpa tambahan "Param" artinya value yang ditransaksikan
+    // dengan "Param" artinya variable local
 
     try {
         const product = await prisma.product.update({
             where:{
                 id: Number(req.params.id)
             },
+            // nama field disini harus sama dengan nama di schema untuk databasenya
+            // simpelnya nama field db disamakan dengan nama model/orm/schema nya
             data:{
                 name: nameParam,
                 price: priceParam

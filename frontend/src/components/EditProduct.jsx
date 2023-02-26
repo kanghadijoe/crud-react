@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditProduct = () => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [nameParamUI, setName] = useState("");
+  const [priceParamUI, setPrice] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -20,8 +20,8 @@ const EditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     await axios.patch(`http://localhost:5000/products/${id}`, {
-      name: name,
-      price: parseInt(price),
+      nameParam: nameParamUI,
+      priceParam: parseInt(priceParamUI),
     });
     navigate("/");
   };
@@ -36,7 +36,7 @@ const EditProduct = () => {
               type="text"
               className="w-full py-3 mt-1 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
               placeholder="Product Name"
-              value={name}
+              value={nameParamUI}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -46,7 +46,7 @@ const EditProduct = () => {
               type="text"
               className="w-full py-3 mt-1 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
               placeholder="Price"
-              value={price}
+              value={priceParamUI}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>

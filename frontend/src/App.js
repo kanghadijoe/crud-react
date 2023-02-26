@@ -8,7 +8,7 @@ function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProductList />} />
+          <Route path="/" element={<ProductList />} /> {/* home */}
           <Route path="/add" element={<AddProduct />} />
           <Route path="/edit/:id" element={<EditProduct />} />
         </Routes>

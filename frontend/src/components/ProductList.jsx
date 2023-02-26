@@ -8,6 +8,8 @@ const ProductList = () => {
   const fetcher = async () => {
     const response = await axios.get("http://localhost:5000/products");
     return response.data;
+    // response.data ini penamaan parameternya dari dari field di database
+    // misal data.name artinya dari endpoint adalah name fieldnya 
   };
 
   const { data } = useSWR("products", fetcher);

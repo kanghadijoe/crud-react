@@ -1,7 +1,7 @@
 GET http://localhost:5000/products
 
 ###
-GET http://localhost:5000/products/3
+GET http://localhost:5000/products/1
 
 ###
 POST http://localhost:5000/products
